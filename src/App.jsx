@@ -13,6 +13,7 @@ import FeaturesSection from './web3/FeaturesSection'
 import Info from './web3/Info';
 import Services from './web3/Services';
 import Methodology from './web3/Methodology';
+import BlockchainNetworks from './web3/BlockchainNetworks'
 function App() {
   return (
     <Router>
@@ -33,9 +34,11 @@ function App() {
               <Info/>
               <Future/>
               <Services/>
+              <BlockchainNetworks/>
               <Methodology/>
               <ServicesWeb3/>
               <FeaturesSection/>
+              <ContacForm />
             </>
           } />
         </Routes>
