@@ -9,14 +9,15 @@ const Future = () => {
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ objectPosition: 'top' }}
             />
-            <div className="relative z-10 text-left max-w-screen-xl ml-24">
+            <div className="relative z-10 text-left max-w-screen-xl ml-48">
                 <div className="max-w-3xl mx-auto">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-6">Philosophy & Vision.</h1>
-                    <h2 className="text-2xl md:text-3xl font-light mb-8">Right now we’re at the dawning of a new era, and we know you feel this paradigm shift too. That’s why you’re here.</h2>
+                    <h1 className="text-[55px] font-interTight -mb-6">Philosophy</h1>
+                    <h1 className="text-[55px] font-interTight mb-4">& Vision.</h1>
+                    <h2 className="text-[24px] font-interTight font-normal mb-8">Right now we’re at the dawning of a new era, and we know you feel this paradigm shift too. That’s why you’re here.</h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div>
-                            <p className="hover:text-white text-[16px] font-interTight font-light">
+                            <p className="hover:text-white text-[16px] font-inter font-light">
                                 The changemakers of the future want to own their identities, information and funds - and rebuild the broken systems of the present.
 
                                 At MatterBlock, we believe the decentralized ecosystem is putting power back in the hands of the people, with Web 3 as the cornerstone for change.
@@ -25,7 +26,7 @@ const Future = () => {
                             </p>
                         </div>
                         <div>
-                            <p className="hover:text-white text-[16px] font-interTight font-light">
+                            <p className="hover:text-white text-[16px] font-inter font-light">
                                 History remembers the bold, and as we stand on the precipice of change, the businesses that stay the course are the ones who are committed to their vision, and have a clear path forward.
 
                                 MatterBlock is your knowledgeable partner on this journey: we believe in the same things. We care about the same things. We’re on the same side.
@@ -35,7 +36,10 @@ const Future = () => {
                     </div>
 
                     <div className="text-left mt-8">
-                        <button className="bg-green-500 text-white py-2 px-6 rounded-full hover:bg-green-600 transition">
+                        <button
+                            type="submit"
+                            className="w-full max-w-[180px] h-14 mt-2 border border-white bg-black text-white py-2 rounded-xl hover:bg-[#04BFAD] hover:text-black hover:border-none transition"
+                        >
                             Get In Touch
                         </button>
                     </div>

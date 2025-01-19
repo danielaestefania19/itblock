@@ -8,10 +8,11 @@ import {
   motion,
   animate,
 } from "framer-motion";
+import Logo from '../assets/Logo.png'
 
-const COLORS_TOP = ["#04BFAD" , "#36BFB1", "#038C73", "#02735E", "#014034"];
+const COLORS_TOP = ["#04BFAD", "#36BFB1", "#038C73", "#02735E", "#014034"];
 
- const Hero = () => {
+const Hero = () => {
   const color = useMotionValue(COLORS_TOP[0]);
 
   useEffect(() => {
@@ -32,18 +33,23 @@ const COLORS_TOP = ["#04BFAD" , "#36BFB1", "#038C73", "#02735E", "#014034"];
       style={{
         backgroundImage,
       }}
-      className="relative grid min-h-screen place-content-center overflow-hidden bg-gray-950 px-4 py-24 text-gray-200"
+      className="relative grid h-[75vh] place-content-center overflow-hidden bg-gray-950 px-4 py-24 text-gray-200"
     >
       <div className="relative z-10 flex flex-col items-center">
-        <span className="mb-1.5 inline-block rounded-full bg-gray-600/50 px-3 py-1.5 text-sm">
-          Beta Now Live!
-        </span>
-        <h1 className="max-w-3xl bg-gradient-to-br from-white to-gray-400 bg-clip-text text-center text-3xl font-medium font-machina leading-tight text-transparent sm:text-5xl sm:leading-tight md:text-7xl md:leading-tight">
-        Empresa de soluciones IT
-        </h1>
+        <div className="mb-1.5 inline-block  p-1.5">
+          <img 
+            src={Logo} 
+            alt="Beta Now Live!"
+            className="w-16 h-16 rounded" 
+          />
+        </div>
+        
+        <h2 className="text-center text-[60px] font-interTight font-bold -mb-4 leading-none tracking-[0.10px]">
+            <span className="block">Somos tu empresa de</span>
+            <span className="block">Desarrollo Web</span>
+          </h2>
         <p className="my-6 max-w-xl text-center text-base leading-relaxed md:text-lg md:leading-relaxed">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, et,
-          distinctio eum impedit nihil ipsum modi.
+       Dando forma al futuro a travez de la web!
         </p>
         <motion.button
           style={{
@@ -58,7 +64,7 @@ const COLORS_TOP = ["#04BFAD" , "#36BFB1", "#038C73", "#02735E", "#014034"];
           }}
           className="group relative flex w-fit items-center gap-1.5 rounded-full bg-gray-950/10 px-4 py-2 text-gray-50 transition-colors hover:bg-gray-950/50"
         >
-          Start free trial
+         Inicia tu proyecto Web
           <FiArrowRight className="transition-transform group-hover:-rotate-45 group-active:-rotate-12" />
         </motion.button>
       </div>
@@ -72,5 +78,4 @@ const COLORS_TOP = ["#04BFAD" , "#36BFB1", "#038C73", "#02735E", "#014034"];
   );
 };
 
-
-export default Hero 
+export default Hero;

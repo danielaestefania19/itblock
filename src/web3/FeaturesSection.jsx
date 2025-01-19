@@ -1,4 +1,3 @@
-import React from 'react';
 import bgweb3 from '../assets/bgcard.png'
 import bgweb2 from '../assets/bgcard2.png'
 import { FiShield, FiLayout, FiTrendingUp, FiFileText } from 'react-icons/fi';
