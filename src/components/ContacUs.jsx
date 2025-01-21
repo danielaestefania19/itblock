@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -19,119 +20,131 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    
+  
+    // Usando emailjs para enviar el correo
+    emailjs
+      .sendForm('service_qdqrerj', 'template_f1t157a', e.target, '0b7bCrcE00ZY8GZUW')
+      .then(
+        (result) => {
+          console.log('Email sent result:', result); // Muestra el resultado completo en consola
+          alert('Message sent successfully');
+        },
+        (error) => {
+          console.error('Error sending email:', error); // Muestra el error completo en consola
+          alert('Message sending failed');
+        }
+      );
   };
+  
 
   return (
     <div className="flex items-center justify-center px-6 py-24 bg-black">
       <div className='max-w-7xl w-full'>
-       <h2 className="text-[70px] text-white -mb-6">Lets </h2> 
-       <h2 className="text-[70px] text-[#04BFAD] mb-16">Connect.</h2>
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-12 rounded-[40px] shadow-lg w-full max-w-7xl"
-      >
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
-          <div>
-            <label className="block text-gray-700">Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              placeholder="E.g. Marcus"
-              className="w-full h-[55px] border border-black p-3 rounded-xl"
-              required
-            />
+        <h2 className="text-[70px] text-white -mb-6">Lets </h2>
+        <h2 className="text-[70px] text-[#04BFAD] mb-16">Connect.</h2>
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white p-12 rounded-[40px] shadow-lg w-full max-w-7xl"
+        >
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-4">
+            <div>
+              <label className="block text-gray-700">Name:</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="E.g. Marcus"
+                className="w-full h-[55px] border border-black p-3 rounded-xl"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Email Address:</label>
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="E.g. marcus@outlook.com"
+                className="w-full h-[55px] border border-black p-3 rounded-xl"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Name of project:</label>
+              <input
+                type="text"
+                name="projectName"
+                value={formData.projectName}
+                onChange={handleChange}
+                placeholder="E.g. Cardano"
+                className="w-full h-[55px] border border-black p-3 rounded-xl"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Website:</label>
+              <input
+                type="url"
+                name="website"
+                value={formData.website}
+                onChange={handleChange}
+                placeholder="www.cardano.com"
+                className="w-full h-[55px] border border-black p-3 rounded-xl"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Number:</label>
+              <input
+                type="number"
+                name="number"
+                value={formData.number}
+                onChange={handleChange}
+                placeholder="Ej: +51 1234 5678"
+                className="w-full h-[55px] border border-black p-3 rounded-xl"
+                required
+              />
+            </div>
+
+            <div className="mt-4">
+              <button
+                type="submit"
+                className="w-full max-w-[180px] h-14 mt-2 border border-black bg-white text-black py-2 rounded-xl hover:bg-[#04BFAD] transition"
+              >
+                S U B M I T
+              </button>
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Stage:</label>
+              <input
+                type="text"
+                name="stage"
+                value={formData.stage}
+                onChange={handleChange}
+                placeholder="Testing"
+                className="w-full h-[55px] border border-black p-3 rounded-xl"
+              />
+            </div>
+
+            <div>
+              <label className="block text-gray-700">Two sentence description of your project:</label>
+              <textarea
+                name="projectDescription"
+                value={formData.projectDescription}
+                onChange={handleChange}
+                placeholder="..."
+                className="w-full border border-black p-3 rounded-xl"
+                rows="3"
+              />
+            </div>
           </div>
-
-          <div>
-            <label className="block text-gray-700">Email Address:</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="E.g. marcus@outlook.com"
-              className="w-full h-[55px] border border-black p-3 rounded-xl"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700">Name of project:</label>
-            <input
-              type="text"
-              name="projectName"
-              value={formData.projectName}
-              onChange={handleChange}
-              placeholder="E.g. Cardano"
-              className="w-full h-[55px] border border-black p-3 rounded-xl"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700">Website:</label>
-            <input
-              type="url"
-              name="website"
-              value={formData.website}
-              onChange={handleChange}
-              placeholder="www.cardano.com"
-              className="w-full h-[55px] border border-black p-3 rounded-xl"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-700">Number:</label>
-            <input
-              type="number"
-              name="number"
-              value={formData.number}
-              onChange={handleChange}
-              placeholder="Ej: +51 1234 5678"
-              className="w-full h-[55px] border border-black p-3 rounded-xl"
-              required
-            />
-          </div>
-
-
-
-          <div className="mt-4">
-          <button
-            type="submit"
-            className="w-full max-w-[180px] h-14 mt-2 border border-black bg-white text-black py-2 rounded-xl hover:bg-[#04BFAD] transition"
-          >
-            S U B M I T
-          </button>
-        </div>
-
-          <div>
-            <label className="block text-gray-700">Stage:</label>
-            <input
-              type="text"
-              name="stage"
-              value={formData.stage}
-              onChange={handleChange}
-              placeholder="Testing"
-              className="w-full h-[55px] border border-black p-3 rounded-xl"
-            />
-          </div>
-          <div >
-            <label className="block text-gray-700">Two sentence description of your project:</label>
-            <textarea
-              name="projectDescription"
-              value={formData.projectDescription}
-              onChange={handleChange}
-              placeholder="..."
-              className="w-full border border-black p-3 rounded-xl"
-              rows="3"
-            />
-          </div>
-        </div>
-      </form>
+        </form>
       </div>
     </div>
   );
