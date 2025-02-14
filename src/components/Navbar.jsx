@@ -51,7 +51,7 @@ const Navbar = () => {
         <Link to="#who" className="hover:text-white text-[16px] font-interTight font-normal">Who</Link>
         <Link to="#what-we-do" className="hover:text-white text-[16px] font-interTight font-normal">What We Do</Link>
         <Link to="/web3" className="hover:text-white text-[16px] font-interTight font-normal">Web3</Link>
-        <Link to="#contact-us" className="hover:text-white text-[16px] font-interTight font-normal">Contact Us</Link>
+        <Link to="#contact-us" className="hover:text-white text-[16px] font-interTight font-normal">Contact  Us</Link>
       </div>
 
       {/* Botón para traducir toda la página */}

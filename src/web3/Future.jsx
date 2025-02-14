@@ -39,7 +39,7 @@ const Future = () => {
                             type="submit"
                             className="w-full max-w-[180px] h-14 mt-2 border border-white bg-black text-white py-2 rounded-xl hover:bg-[#04BFAD] hover:text-black hover:border-none transition"
                         >
-                            Ponte en Contacto
+                            Ponte en  Contacto
                         </button>
                     </div>
                 </div>
