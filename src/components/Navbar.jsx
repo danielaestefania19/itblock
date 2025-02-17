@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import itblock from '../assets/itblock.png'
 import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_TRANSLATE_API_KEY; // 🔥 Reemplaza con tu clave de Google Cloud Translation API
@@ -10,7 +11,7 @@ const Navbar = () => {
   // Función para traducir el contenido de la página sin perder estilos
   const translatePage = async () => {
     // Obtener solo los elementos con texto dentro de la página
-    const elements = document.querySelectorAll("*:not(script):not(style):not(meta):not(link)"); 
+    const elements = document.querySelectorAll("*:not(script):not(style):not(meta):not(link)");
 
     // Recorrer cada elemento y traducirlo dinámicamente
     elements.forEach(async (element) => {
@@ -40,28 +41,39 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-between p-6 bg-[#020617] text-white font-interTight">
-      <div className="text-3xl font-bold">
-        <span className="border-b-2 border-white pb-0">itblock</span>
+    <nav className="flex items-center justify-between h-28 p-2 bg-[#020617] text-white font-interTight">
+    {/* Logo */}
+    <div className="h-full flex items-center">
+      <div className="h-24 w-32 overflow-hidden rounded -translate-y-8">
+        <img
+          src={itblock}
+          alt="Beta Now Live!"
+          className="w-36 h-36 object-cover object-[center_top]"
+        />
       </div>
-
-      {/* Enlaces de la Navbar */}
-      <div className="flex space-x-6">
-        <Link to="/" className="hover:text-white text-[16px] font-interTight font-normal">About</Link>
-        <Link to="#who" className="hover:text-white text-[16px] font-interTight font-normal">Who</Link>
-        <Link to="#what-we-do" className="hover:text-white text-[16px] font-interTight font-normal">What We Do</Link>
-        <Link to="/web3" className="hover:text-white text-[16px] font-interTight font-normal">Web3</Link>
-        <Link to="#contact-us" className="hover:text-white text-[16px] font-interTight font-normal">Contact  Us</Link>
-      </div>
-
-      {/* Botón para traducir toda la página */}
+    </div>
+  
+    {/* Enlaces de la Navbar */}
+    <div className="flex space-x-6 h-full items-center">
+      <Link to="/" className="hover:text-white text-[16px] font-interTight font-normal">About</Link>
+      <Link to="#who" className="hover:text-white text-[16px] font-interTight font-normal">Who</Link>
+      <Link to="#what-we-do" className="hover:text-white text-[16px] font-interTight font-normal">What We Do</Link>
+      <Link to="/web3" className="hover:text-white text-[16px] font-interTight font-normal">Web3</Link>
+      <Link to="#contact-us" className="hover:text-white text-[16px] font-interTight font-normal">Contact Us</Link>
+    </div>
+  
+    {/* Botón para traducir */}
+    <div className="h-full flex items-center">
       <button
         onClick={translatePage}
         className="ml-4 px-4 py-2 bg-[#038C73] text-white rounded-lg shadow hover:bg-[#014034]"
       >
         {language === "es" ? "Translate to English" : "Traducir a Español"}
       </button>
-    </nav>
+    </div>
+  </nav>
+  
+
   );
 };
 
