@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar1 from './components/Navbar1';
 import Hero from './components/Hero';
 import Features from './components/Features';
-//import Services from './components/Services';
+import Services from './components/Services';
 import ContacForm from './components/ContacUs';
 import Footer from './components/Footer';
 import HeroWeb3 from './web3/HeroWeb3'; // Importa el componente HeroWeb3
@@ -11,20 +11,20 @@ import Future from './web3/Future';
 //import ServicesWeb3 from './web3/ServicesWeb3';
 //import FeaturesSection from './web3/FeaturesSection'
 import Info from './web3/Info';
-import Services from './web3/Services';
+import ServicesWeb3 from './web3/ServicesWeb3';
 import Methodology from './web3/Methodology';
 import BlockchainNetworks from './web3/BlockchainNetworks'
 function App() {
   return (
     <Router>
       <div>
-        <Navbar />
+        <Navbar1 />
         <Routes>
           <Route path="/" element={
             <>
               <Hero />
               <Features />
-              {/* <Services /> */}
+               <Services />
               <ContacForm />
             </>
           } />
@@ -33,7 +33,7 @@ function App() {
               <HeroWeb3 />
               <Info/>
               <Future/>
-              <Services/>
+              <ServicesWeb3/>
               <BlockchainNetworks/>
               <Methodology/>
 

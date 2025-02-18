@@ -5,14 +5,13 @@ import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_GOOGLE_TRANSLATE_API_KEY; // 🔥 Reemplaza con tu clave de Google Cloud Translation API
 
-const Navbar = () => {
+const Navbar1 = () => {
   const [language, setLanguage] = useState("es"); // Estado para manejar el idioma
 
   // Función para traducir el contenido de la página sin perder estilos
   const translatePage = async () => {
     // Obtener solo los elementos con texto dentro de la página
     const elements = document.querySelectorAll("*:not(script):not(style):not(meta):not(link)");
-
     // Recorrer cada elemento y traducirlo dinámicamente
     elements.forEach(async (element) => {
       if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) {
@@ -87,4 +86,4 @@ const Navbar = () => {
 };
 
 
-export default Navbar;
+export default Navbar1;

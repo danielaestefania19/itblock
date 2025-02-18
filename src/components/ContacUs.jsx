@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
+  const contactRef = useRef(null); // Ref para el formulario
+
   const [formData, setFormData] = useState({
     name: '',
     number: '',
@@ -21,24 +23,22 @@ const ContactForm = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
   
-    // Usando emailjs para enviar el correo
     emailjs
       .sendForm('service_qdqrerj', 'template_f1t157a', e.target, '0b7bCrcE00ZY8GZUW')
       .then(
         (result) => {
-          console.log('Email sent result:', result); // Muestra el resultado completo en consola
+          console.log('Email sent result:', result);
           alert('Message sent successfully');
         },
         (error) => {
-          console.error('Error sending email:', error); // Muestra el error completo en consola
+          console.error('Error sending email:', error);
           alert('Message sending failed');
         }
       );
   };
-  
 
   return (
-    <div className="flex items-center justify-center px-6 py-24 bg-black">
+    <div ref={contactRef} id="contact-us" className="flex items-center justify-center px-6 py-24 bg-black">
       <div className='max-w-7xl w-full'>
         <h2 className="text-[70px] text-white -mb-6">Lets </h2>
         <h2 className="text-[70px] text-[#04BFAD] mb-16">Connect.</h2>
@@ -151,6 +151,7 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
 
 
 
