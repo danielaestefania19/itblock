@@ -18,24 +18,48 @@ const ContactForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
   
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      projectName: formData.projectName,
+      website: formData.website,
+      number: formData.number,
+      stage: formData.stage,
+      projectDescription: formData.projectDescription,
+    };
+  
+    // Enviar correo a tu equipo
     emailjs
-      .sendForm('service_qdqrerj', 'template_f1t157a', e.target, '0b7bCrcE00ZY8GZUW')
+      .send('service_qdqrerj', 'template_f1t157a', templateParams, '0b7bCrcE00ZY8GZUW')
       .then(
         (result) => {
-          console.log('Email sent result:', result);
-          alert('Message sent successfully');
-        },
-        (error) => {
-          console.error('Error sending email:', error);
-          alert('Message sending failed');
+          console.log('Correo enviado a equipo:', result);
+  
+          // Enviar respuesta automática al usuario
+          const autoReplyParams = {
+            name: formData.name,
+            email: formData.email, // Enviar respuesta a este correo
+            projectName: formData.projectName,
+            projectDescription: formData.projectDescription,
+          };
+  
+          return emailjs.send('service_qdqrerj', 'template_kv84oke', autoReplyParams, '0b7bCrcE00ZY8GZUW');
         }
-      );
+      )
+      .then((autoReplyResult) => {
+        console.log('Correo de confirmación enviado:', autoReplyResult);
+        alert('Mensaje enviado correctamente y se ha enviado confirmación al usuario.');
+      })
+      .catch((error) => {
+        console.error('Error al enviar los correos:', error);
+        alert('Error al enviar el mensaje.');
+      });
   };
+  
+  
 
   return (
     <div ref={contactRef} id="contact-us" className="flex items-center justify-center px-6 py-24 bg-black">
