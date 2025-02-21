@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
-import Services from './components/Services';
+//import Services from './components/Services';
 import ContacForm from './components/ContacUs';
 import Footer from './components/Footer';
 import HeroWeb3 from './web3/HeroWeb3'; // Importa el componente HeroWeb3
@@ -24,7 +24,7 @@ function App() {
             <>
               <Hero />
               <Features />
-              <Services />
+              {/* <Services /> */}
               <ContacForm />
             </>
           } />
