@@ -1,11 +1,19 @@
+import itblock1 from '../assets/itblock1.png'
 const Footer = () => {
     return (
         <footer className="bg-white py-10">
             <div className="max-w-[1250px] mx-auto px-4 flex flex-col"> 
                 <div className="flex justify-between mb-8"> 
-                    <div className="flex items-center">
-                        <h2 className="text-4xl font-bold text-black">itblock</h2>
-                    </div> 
+                    
+                            <div className="h-full flex items-center">
+                              <div className="h-24 w-32 overflow-hidden rounded -translate-y-8">
+                                <img
+                                  src={itblock1}
+                                  alt="Beta Now Live!"
+                                  className="w-36 h-36 object-cover object-[center_top]"
+                                />
+                              </div>
+                            </div>
                     <nav className="flex flex-col mr-52 font-inter text-[14px] font-light"> 
                         <a href="#" className="text-black hover:text-black mb-1">About</a>
                         <a href="#" className="text-black hover:text-black mb-1">Who</a>
